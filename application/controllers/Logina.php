@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Logins extends CI_Controller {
 
 
     public function __construct(){
@@ -62,14 +62,12 @@ class Login extends CI_Controller {
         $password_enkrip_aes = $hashmesg.$encode;
 
         $data_input = array(
-        
           'users_name' => $password,
           'password' => $password_enkrip_aes,
           'nama_users' => trim($this->input->post('nama_users')),
           'prodi' => trim($this->input->post('prodi')),
           'angkatan' => trim($this->input->post('angkatan')),
-          'create_time' => date('Y-m-d H:i:s')
-                  
+          'create_time' => date('Y-m-d H:i:s') 
           );
         $table_name = 'users';
         $id = $this->Crud_model->save_data($data_input, $table_name);
